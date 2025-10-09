@@ -11,7 +11,7 @@ export const TabsContainer = styled.div`
   border-bottom: 1px solid ${colors.black100};
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 `;
 
 export const TabItem = styled.button<{ active: boolean }>`
@@ -27,5 +27,6 @@ export const TabItem = styled.button<{ active: boolean }>`
 
   &:hover {
     color: ${colors.black500};
+    transform: scale(1.05);
   }
 `;

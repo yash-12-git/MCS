@@ -53,7 +53,7 @@ export const Dropdown = styled.div`
   border: 1px solid ${colors.grey300};
   border-radius: 0.5rem;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  z-index: 9;
+  z-index: 13;
   margin: 0 1rem;
   max-height: 15rem;
   overflow-y: auto;

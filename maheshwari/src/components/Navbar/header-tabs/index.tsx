@@ -6,7 +6,7 @@ import { TabItem, TabsContainer } from './styles';
 const tabs = [
   { label: 'Home', path: '/' },
   { label: 'Best Sellers', path: '/best-sellers' },
-  { label: 'Suiting', path: '/suiting' },
+  { label: 'Trouser Fabric', path: '/trouser' },
   { label: 'Shirting', path: '/shirting' },
   { label: 'Combos', path: '/combos' },
   { label: 'Ethnic Wear', path: '/ethnic-wear' },

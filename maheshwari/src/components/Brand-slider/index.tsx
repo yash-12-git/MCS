@@ -33,7 +33,7 @@ export const BrandSlider = () => {
     if (!slider) return;
 
     let position = 0;
-    const speed = 0.5;
+    const speed = 1;
 
     let animationFrame: number;
 

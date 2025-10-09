@@ -14,7 +14,7 @@ export const HomePageBanner = ({
   imageSrc = "/banner-img.png",
   title = "Wrap Yourself in Luxury: Maheshwari’s Finest Fabrics",
   subtitle="Discover vibrant colors, intricate designs, and timeless elegance.",
-  buttonText = "Shop all fabrics",
+  buttonText = "Explore Collections",
 }: BannerProps) => {
   return (
     <BannerContainer>

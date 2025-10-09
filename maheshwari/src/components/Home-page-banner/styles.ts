@@ -20,7 +20,7 @@ export const ImageWrapper = styled.div`
 
 export const BannerContent = styled.div`
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 2rem;
   left: 2rem;
   color: ${colors.beige500};
   z-index: 10;
