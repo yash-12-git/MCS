@@ -4,14 +4,15 @@ import React, { useRef, useEffect } from 'react';
 import { SliderWrapper, SliderContent, SliderMessage } from './style';
 
 const messages = [
-  'Free shipping on orders over ₹999!',
-  'Buy 2 get 1 free on select fabrics!',
-  'New arrivals: Premium Suit Fabrics!',
-  'Festive Sale: Up to 50% off!',
-  'Custom tailoring now available!',
+  'Enjoy free shipping on orders above ₹1499!',
+  'Get an extra 5% off on prepaid orders!',
+  'Discover our latest premium arrivals!',
+  'Festive Sale: Save up to 50% on select styles!',
+  'Shop worry-free with 7-day easy returns & exchanges!',
 ];
 
-export const PromotionSlider = () => {
+
+const PromotionSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -46,3 +47,5 @@ export const PromotionSlider = () => {
     </SliderWrapper>
   );
 };
+
+export default PromotionSlider;

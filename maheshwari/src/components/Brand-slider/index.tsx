@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { SliderWrapper, SliderContent, SliderItem } from './styles';
-import { useRouter } from 'next/navigation';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { SliderWrapper, SliderContent, SliderItem } from "./styles";
+import { useRouter } from "next/navigation";
 
 interface Brand {
   name: string;
@@ -11,20 +11,18 @@ interface Brand {
 }
 
 const brands: Brand[] = [
-  { name: 'Raymond', logo: '/raymond.webp' },
-  { name: 'Siyarams', logo: '/siyarams.png' },
-  { name: 'Ocm', logo: '/ocm.gif' },
-  { name: 'Linen Club', logo: '/linenclub.webp' },
-  { name: 'J Hampstead', logo: '/jhamps.jpg' },
-  { name: 'Cadini Italy', logo: '/cadini.jpg' },
-  { name: 'Birla Century', logo: '/birlacentury.avif' },
+  { name: "Raymond", logo: "/raymond.webp" },
+  { name: "Siyarams", logo: "/siyarams-mill.png" },
+  { name: "Ocm", logo: "/ocm.gif" },
+  { name: "Linen Club", logo: "/linenClub.jpg" },
+  { name: "J Hampstead", logo: "/jhamps.jpg" },
+  { name: "Cadini Italy", logo: "/cadini.jpg" },
+  { name: "Birla Century", logo: "/birla.png" },
 ];
 
-// Utility to convert brand name to slug
-const toSlug = (name: string) =>
-  name.trim().toLowerCase().replace(/\s+/g, '-');
+const toSlug = (name: string) => name.trim().toLowerCase().replace(/\s+/g, "-");
 
-export const BrandSlider = () => {
+const BrandSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -58,14 +56,9 @@ export const BrandSlider = () => {
           <SliderItem
             key={idx}
             onClick={() => router.push(`/partner?slug=${toSlug(brand.name)}`)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           >
-            <Image
-              src={brand.logo}
-              alt={brand.name}
-              width={120}
-              height={60}
-            />
+            <Image src={brand.logo} alt={brand.name} width={120} height={60} />
           </SliderItem>
         ))}
       </SliderContent>

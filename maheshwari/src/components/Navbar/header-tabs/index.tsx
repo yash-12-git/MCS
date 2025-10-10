@@ -1,22 +1,20 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter } from 'next/navigation';
-import { TabItem, TabsContainer } from './styles';
+import { usePathname, useRouter } from "next/navigation";
+import { TabItem, TabsContainer } from "./styles";
 
 const tabs = [
-  { label: 'Home', path: '/' },
-  { label: 'Best Sellers', path: '/best-sellers' },
-  { label: 'Trouser Fabric', path: '/trouser' },
-  { label: 'Shirting', path: '/shirting' },
-  { label: 'Combos', path: '/combos' },
-  { label: 'Ethnic Wear', path: '/ethnic-wear' },
-  { label: 'Suits', path: '/suits' },
-  { label: 'Gift Packs', path: '/gift-packs' },
-  { label: 'Jackets', path: '/jackets' },
-
+  { label: "Home", path: "/" },
+  { label: "Best Sellers", path: "/best-sellers" },
+  { label: "Suits", path: "/suits" },
+  { label: "Jackets", path: "/jackets" },
+  { label: "Trousers", path: "/trouser" },
+   { label: "Blazers", path: "/combos" },
+  { label: "Shirts", path: "/shirting" },
+  { label: "Ethnic Wear", path: "/ethnic-wear" },
 ];
 
-export const HeaderTabs = () => {
+const HeaderTabs = () => {
   const pathname = usePathname();
   const router = useRouter();
 

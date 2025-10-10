@@ -10,10 +10,10 @@ interface BannerProps {
   buttonText?: string;
 }
 
-export const HomePageBanner = ({
+const HomePageBanner = ({
   imageSrc = "/banner-img.png",
-  title = "Wrap Yourself in Luxury: Maheshwari’s Finest Fabrics",
-  subtitle="Discover vibrant colors, intricate designs, and timeless elegance.",
+  title = "Experience the Art of Fine Living with our Exquisite Fabrics and Designs.",
+  subtitle="Discover vibrant colors, and timeless elegance.",
   buttonText = "Explore Collections",
 }: BannerProps) => {
   return (

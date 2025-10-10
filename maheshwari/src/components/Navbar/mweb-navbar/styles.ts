@@ -6,7 +6,7 @@ export const MobileNavContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 1rem;
-  background-color: ${colors.beige100};
+  background-color: ${colors.beige500};
   border-bottom: 1px solid ${colors.grey200};
   position: sticky;
   top: 0;
@@ -17,6 +17,7 @@ export const MobileLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 1.4rem;
 `;
 
 export const IconButton = styled.button`
@@ -29,7 +30,7 @@ export const IconButton = styled.button`
 export const MobileUtility = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.4rem;
 `;
 
 /* Sidebar */
@@ -59,8 +60,8 @@ export const SidebarItem = styled.div`
   font-size: 1.1rem;
   border-bottom: 1px solid ${colors.grey200};
   cursor: pointer;
-  &:hover {
-    color: ${colors.beige500};
+   &:hover {
+    background-color: ${colors.beige500};
   }
 `;
 
@@ -85,20 +86,21 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchDropdown = styled.div`
-  width: 100%;
+  width: 91%;
+  position: absolute;
   background: ${colors.white100};
   border: 1px solid ${colors.grey300};
   border-radius: 0.5rem;
   top: 3.5rem;
-  left: 0;
-  z-index: 10;
+  left: 1rem;
+  z-index: 12;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 `;
 
 export const SearchResult = styled.div`
   padding: 0.8rem 1rem;
   cursor: pointer;
-  &:hover {
-    background-color: ${colors.beige200};
+    &:hover {
+    background-color: ${colors.beige500};
   }
 `;

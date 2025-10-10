@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { Menu, ShoppingBag, Search, X } from 'lucide-react';
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { Menu, ShoppingBag, Search, X } from "lucide-react";
 import {
   MobileNavContainer,
   MobileLogoWrapper,
@@ -15,22 +15,22 @@ import {
   SearchInput,
   SearchDropdown,
   SearchResult,
-} from './styles';
+} from "./styles";
 
 const MobileNavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const sampleResults = [
-    'Silk Fabric',
-    'Cotton Linen',
-    'Velvet Brocade',
-    'Designer Saree',
-    'Kurta Fabric',
-    'Suiting Material',
-    'Rayon Prints',
+    "Silk Fabric",
+    "Cotton Linen",
+    "Velvet Brocade",
+    "Designer Saree",
+    "Kurta Fabric",
+    "Suiting Material",
+    "Rayon Prints",
   ];
 
   const filteredResults = sampleResults.filter((item) =>
@@ -39,12 +39,15 @@ const MobileNavBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target as Node)
+      ) {
         setSearchOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -64,7 +67,10 @@ const MobileNavBar = () => {
         </MobileLogoWrapper>
 
         <MobileUtility>
-          <IconButton onClick={() => setSearchOpen(!isSearchOpen)} aria-label="Search">
+          <IconButton
+            onClick={() => setSearchOpen(!isSearchOpen)}
+            aria-label="Search"
+          >
             {isSearchOpen ? <X size={22} /> : <Search size={22} />}
           </IconButton>
           <IconButton aria-label="Cart">
@@ -96,16 +102,18 @@ const MobileNavBar = () => {
         </SearchWrapper>
       )}
 
-
       {isSidebarOpen && (
         <>
           <SidebarOverlay onClick={() => setSidebarOpen(false)} />
           <SidebarMenu>
             <SidebarItem>Home</SidebarItem>
-            <SidebarItem>New Arrivals</SidebarItem>
-            <SidebarItem>Fabric Types</SidebarItem>
-            <SidebarItem>Designers</SidebarItem>
-            <SidebarItem>Sale</SidebarItem>
+            <SidebarItem>Best Sellers</SidebarItem>
+            <SidebarItem>Suits</SidebarItem>
+            <SidebarItem>Jackets</SidebarItem>
+            <SidebarItem>Trousers</SidebarItem>
+            <SidebarItem>Blazers</SidebarItem>
+            <SidebarItem>Shirts</SidebarItem>
+            <SidebarItem>Ethnic Wear</SidebarItem>
           </SidebarMenu>
         </>
       )}
