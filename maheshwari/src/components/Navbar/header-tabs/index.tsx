@@ -5,13 +5,13 @@ import { TabItem, TabsContainer } from "./styles";
 
 const tabs = [
   { label: "Home", path: "/" },
-  { label: "Best Sellers", path: "/best-sellers" },
-  { label: "Suits", path: "/suits" },
-  { label: "Jackets", path: "/jackets" },
-  { label: "Trousers", path: "/trouser" },
-   { label: "Blazers", path: "/combos" },
-  { label: "Shirts", path: "/shirting" },
-  { label: "Ethnic Wear", path: "/ethnic-wear" },
+  { label: "Best Sellers", path: "/product-listing/best-sellers" },
+  { label: "Suits", path: "/product-listing/suits" },
+  { label: "Jackets", path: "/product-listing/jackets" },
+  { label: "Trousers", path: "/product-listing/trousers" },
+   { label: "Blazers", path: "/product-listing/blazers" },
+  { label: "Shirts", path: "/product-listing/shirts" },
+  { label: "Kurtas", path: "/product-listing/kurtas" },
 ];
 
 const HeaderTabs = () => {

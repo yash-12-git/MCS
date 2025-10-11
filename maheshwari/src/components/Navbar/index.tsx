@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic';
+"use client";
+
 import DwebNavBar from './dweb-navbar';
 import styled from '@emotion/styled';
-
-const MobileNavBar = dynamic(() => import('@/components/Navbar/mweb-navbar'), { ssr: false });
+import MobileNavBar from './mweb-navbar';
 
 const DesktopWrapper = styled.div`
   display: none;

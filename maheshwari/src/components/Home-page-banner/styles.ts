@@ -36,9 +36,9 @@ export const BannerContent = styled.div`
 
   @media (max-width: 768px) {
     bottom: 8rem;
-  left: 5.5rem;
+    left: 6.5rem;
     h1 {
-    display: none;
+      display: none;
       font-size: 1rem;
       color: ${colors.beige100};
     }

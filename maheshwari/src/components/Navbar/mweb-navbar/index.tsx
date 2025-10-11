@@ -16,12 +16,15 @@ import {
   SearchDropdown,
   SearchResult,
 } from "./styles";
+import { usePathname, useRouter } from "next/navigation";
 
 const MobileNavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const wrapperRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+    const router = useRouter();
 
   const sampleResults = [
     "Silk Fabric",
@@ -32,6 +35,17 @@ const MobileNavBar = () => {
     "Suiting Material",
     "Rayon Prints",
   ];
+
+  const tabs = [
+  { label: "Home", path: "/" },
+  { label: "Best Sellers", path: "/product-listing/best-sellers" },
+  { label: "Suits", path: "/product-listing/suits" },
+  { label: "Jackets", path: "/product-listing/jackets" },
+  { label: "Trousers", path: "/product-listing/trousers" },
+   { label: "Blazers", path: "/product-listing/blazers" },
+  { label: "Shirts", path: "/product-listing/shirts" },
+  { label: "Kurtas", path: "/product-listing/kurtas" },
+];
 
   const filteredResults = sampleResults.filter((item) =>
     item.toLowerCase().includes(query.toLowerCase())
@@ -105,16 +119,17 @@ const MobileNavBar = () => {
       {isSidebarOpen && (
         <>
           <SidebarOverlay onClick={() => setSidebarOpen(false)} />
-          <SidebarMenu>
-            <SidebarItem>Home</SidebarItem>
-            <SidebarItem>Best Sellers</SidebarItem>
-            <SidebarItem>Suits</SidebarItem>
-            <SidebarItem>Jackets</SidebarItem>
-            <SidebarItem>Trousers</SidebarItem>
-            <SidebarItem>Blazers</SidebarItem>
-            <SidebarItem>Shirts</SidebarItem>
-            <SidebarItem>Ethnic Wear</SidebarItem>
-          </SidebarMenu>
+              <SidebarMenu>
+            {
+              tabs.map((tab)=> (
+                <SidebarItem key={tab.path} active={pathname === tab.path}
+          onClick={() => router.push(tab.path)}>
+                  {tab.label}
+                </SidebarItem>
+              ))
+            }
+
+            </SidebarMenu>
         </>
       )}
     </>

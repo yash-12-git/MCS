@@ -39,13 +39,13 @@ export const LinksGroup = styled.div`
 `;
 
 export const FooterLink = styled.a`
-  color: ${colors.beige400};
+  color: ${colors.beige500};
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
 
   &:hover {
-    color: ${colors.beige200};
+    color: ${colors.caution300};
   }
 `;
 

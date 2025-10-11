@@ -8,7 +8,7 @@ export const StripContainer = styled.div`
   background-color: ${colors.colorRichBlue};
   color: ${colors.beige500};
   padding: 0.8rem 1rem;
-  margin: 1rem 3rem;
+  margin: 1rem 2.5rem;
   cursor: pointer;
   @media (max-width: 768px) {
     margin: 1rem;

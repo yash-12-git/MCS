@@ -55,9 +55,10 @@ export const SidebarMenu = styled.div`
   padding: 1.5rem;
 `;
 
-export const SidebarItem = styled.div`
+export const SidebarItem = styled.div<{ active: boolean }>`
   padding: 1rem 0;
   font-size: 1.1rem;
+  color: ${({ active }) => (active ? colors.black100 : colors.grey500)};
   border-bottom: 1px solid ${colors.grey200};
   cursor: pointer;
    &:hover {

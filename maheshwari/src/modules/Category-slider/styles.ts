@@ -8,7 +8,7 @@ export const FabricCard = styled.div`
   height: 15rem;
   overflow: hidden;
   cursor: pointer;
-  border-radius: 0.65rem;
+  border-radius:0.65rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   &:hover {
     transform: translateY(-4px);

@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/app/product-listing/[category]"  ],
   "exclude": [
     "node_modules"
   ]
