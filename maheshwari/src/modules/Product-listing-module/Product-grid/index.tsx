@@ -5,6 +5,7 @@ import {
   PriceContainer,
   Description,
   NoProductSection,
+  DescriptionContainer,
 } from "./styles";
 import Image from "next/image";
 import { IProductListing } from "@/types/interface";
@@ -43,7 +44,8 @@ export default function ProductList({ products, isLoading = false }: Props) {
             height={100}
             alt={product.name}
           />
-          <h3>{product.name}</h3>
+          <DescriptionContainer>
+               <h3>{product.name}</h3>
 
           <PriceContainer>
             <span className="discounted">₹{product.discountedPrice}</span>
@@ -57,6 +59,7 @@ export default function ProductList({ products, isLoading = false }: Props) {
           {!product.inStock && (
             <span className="out-of-stock">Out of Stock</span>
           )}
+          </DescriptionContainer>
         </ProductCard>
       ))}
     </ProductGrid>

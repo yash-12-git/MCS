@@ -4,10 +4,11 @@ import styled from "@emotion/styled";
 export const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0rem;
+  gap: 1.5rem;
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      gap: 1.5rem 0.5rem;
   }
 `;
 
@@ -17,15 +18,12 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
   position: relative;
   box-shadow: 0px 8px 15px ${colors.grey200};
   opacity: ${({ outOfStock }) => (outOfStock ? 0.6 : 1)};
-  padding: 0.5rem;
-  border-radius: 8px;
-  cursor: ${({ outOfStock }) => (outOfStock ? "none" : "pointer")};
+  border-radius: 0.5rem;
 
   img {
     width: 100%;
     min-height: 18rem;
     object-fit: cover;
-    border-radius: 4px;
   }
 
   h3 {
@@ -41,14 +39,14 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
     padding: 4px 8px;
     border-radius: 4px;
     position: absolute;
-    top: -0.2rem;
-    left: 12.5rem;
+    top: -0.8rem;
+    left: 2%;
   }
 
   .out-of-stock {
     position: absolute;
-    bottom: 7rem;
-    left: 0.8rem;
+    bottom: 6.5rem;
+    left: 0.4rem;
     background: ${colors.error300};
     color: white;
     padding: 2px 6px;
@@ -65,14 +63,29 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
     }
 
     .badge {
-      font-size: 12px;
-      padding: 4px 8px;
+      font-size: 11px;
+      padding: 0.2rem 0.4rem;
       border-radius: 4px;
       position: absolute;
-      top: -0.2rem;
-      left: 5.6rem;
+      top: -0.6rem;
+      left: 5%;
     }
+
+    .out-of-stock {
+    position: absolute;
+    bottom: 8rem;
+    left: 0.4rem;
+    background: ${colors.error300};
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
   }
+  }
+`;
+
+export const DescriptionContainer = styled.div`
+padding: 0rem 0.5rem;
 `;
 
 export const PriceContainer = styled.div`
@@ -80,7 +93,6 @@ export const PriceContainer = styled.div`
   align-items: center;
   gap: 0.25rem;
   margin-bottom: 0.25rem;
-
   .discounted {
     font-weight: 700;
     color: ${colors.black100};

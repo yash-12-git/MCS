@@ -46,7 +46,6 @@ const BrandSlider = () => {
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
-  // Duplicate brands for seamless scroll
   const allBrands = [...brands, ...brands];
 
   return (

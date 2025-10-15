@@ -1,14 +1,8 @@
-import Footer from "@/components/Footer";
-import NavBar from "@/components/Navbar";
-import PromotionSlider from "@/components/Promotion-slider";
+import ProductDetailsModule from "@/modules/Product-details-module";
 
 const ProductDetails = () => {
   return (
-    <>
-      <PromotionSlider />
-      <NavBar />
-      <Footer />
-    </>
+   <ProductDetailsModule/>
   );
 };
 

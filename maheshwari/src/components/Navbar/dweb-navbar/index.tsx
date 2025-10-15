@@ -14,21 +14,14 @@ import {
   SearchBarWrapper,
 } from './styles';
 import HeaderTabs from '../header-tabs';
+import { sampleResults } from '@/mock-data/search-results-data';
+import { useRouter } from 'next/navigation';
 
 const DwebNavBar = () => {
   const [query, setQuery] = useState('');
   const [focused, setFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-
-  const sampleResults = [
-    'Silk Fabric',
-    'Cotton Linen',
-    'Velvet Brocade',
-    'Designer Saree',
-    'Kurta Fabric',
-    'Suiting Material',
-    'Rayon Prints',
-  ];
+  const router = useRouter();
 
   const filteredResults = sampleResults.filter((item) =>
     item.toLowerCase().includes(query.toLowerCase())
@@ -48,15 +41,13 @@ const DwebNavBar = () => {
   return (
     <>
     <StyledNavBar>
-      <div>
         <Image
           src="/mcs-logo.png"
           alt="Maheshwari Cloth Store Logo"
           width={100}
           height={90}
+          onClick={()=> router.push("/")}
         />
-      </div>
-
       <SearchBarWrapper ref={wrapperRef}>
         <SearchBar>
           <Search size={30} />

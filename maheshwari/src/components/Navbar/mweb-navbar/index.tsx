@@ -17,6 +17,7 @@ import {
   SearchResult,
 } from "./styles";
 import { usePathname, useRouter } from "next/navigation";
+import { sampleResults } from "@/mock-data/search-results-data";
 
 const MobileNavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -25,16 +26,6 @@ const MobileNavBar = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
     const pathname = usePathname();
     const router = useRouter();
-
-  const sampleResults = [
-    "Silk Fabric",
-    "Cotton Linen",
-    "Velvet Brocade",
-    "Designer Saree",
-    "Kurta Fabric",
-    "Suiting Material",
-    "Rayon Prints",
-  ];
 
   const tabs = [
   { label: "Home", path: "/" },
@@ -77,6 +68,7 @@ const MobileNavBar = () => {
             alt="Maheshwari Cloth Store Logo"
             width={80}
             height={70}
+            onClick={()=> router.push("/")}
           />
         </MobileLogoWrapper>
 
