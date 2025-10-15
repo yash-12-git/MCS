@@ -4,11 +4,10 @@ import styled from "@emotion/styled";
 export const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1rem;
-  min-height: 50vh;
+  gap: 0.5rem;
   margin-bottom: 1rem;
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   }
 `;
 
@@ -36,14 +35,14 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
   }
 
   .badge {
-    background-color: ${colors.golden500};
-    color: ${colors.black100};
-    font-size: 12px;
+    background-color: ${colors.colorRichBlue};
+    color: ${colors.beige200};
+    font-size: 0.75rem;
     padding: 4px 8px;
     border-radius: 4px;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: -0.2rem;
+    left: 12.5rem;
   }
 
   .out-of-stock {
@@ -55,7 +54,7 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
     padding: 2px 6px;
     font-size: 0.75rem;
     border-radius: 0.25rem;
-  };
+  }
 
   @media (max-width: 768px) {
     img {
@@ -63,9 +62,17 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
       min-height: 13rem;
       object-fit: cover;
       border-radius: 4px;
-    };
-    max-height: 5rem;
-}
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      position: absolute;
+      top: -0.2rem;
+      left: 5.6rem;
+    }
+  }
 `;
 
 export const PriceContainer = styled.div`
@@ -102,4 +109,35 @@ export const Description = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0.25rem 0 0.5rem 0;
+`;
+
+export const NoProductSection = styled.div<{ isLoading?: boolean }>`
+  width: 90%;
+  height: 20rem;
+  box-shadow: 0 2px 10px ${colors.grey400};
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-size: 2.5rem;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  
+  @media (max-width: 768px) {
+  margin: 1.2rem;
+   h3 {
+    font-size: 1.5rem;
+    padding: 0rem;
+    margin: 0rem;
+  }
+  }
 `;

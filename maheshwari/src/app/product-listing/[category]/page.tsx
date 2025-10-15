@@ -23,6 +23,8 @@ export default function ProductListingPage() {
   const { category } = useParams();
   const [products, setProducts] = useState<IProductListing[]>([]);
   const [sortOption, setSortOption] = useState("");
+  const [loading, setLoading] = useState(true);
+
   const defaultFilterValues: FilterValues = {
     color: null,
     size: null,
@@ -31,8 +33,8 @@ export default function ProductListingPage() {
     minPrice: 0,
     maxPrice: 10000,
   };
-  const [filters, setFilters] = useState<FilterValues>(defaultFilterValues);
 
+  const [filters, setFilters] = useState<FilterValues>(defaultFilterValues);
   const [filterSheetVisible, setFilterSheetVisible] = useState(false);
   const [sortSheetVisible, setSortSheetVisible] = useState(false);
 
@@ -42,27 +44,35 @@ export default function ProductListingPage() {
 
   const categoryName = (category as string)?.replace("-", " ") || "Products";
 
-useEffect(() => {
-  const fetchProducts = async () => {
-    const query = new URLSearchParams({
-      category: (category as string) || "",
-      color: filters.color || "",
-      size: filters.size || "",
-      fabric: filters.fabric || "",
-      availability: filters.availability || "",
-      minPrice: String(filters.minPrice),
-      maxPrice: String(filters.maxPrice),
-      sort: sortOption || "",
-    });
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const query = new URLSearchParams({
+          category: (category as string) || "",
+          color: filters.color || "",
+          size: filters.size || "",
+          fabric: filters.fabric || "",
+          availability: filters.availability || "",
+          minPrice: String(filters.minPrice),
+          maxPrice: String(filters.maxPrice),
+          sort: sortOption || "",
+        });
 
-    const res = await fetch(`/api/products?${query.toString()}`);
-    const data = await res.json();
+        const res = await fetch(`/api/products?${query.toString()}`);
 
-    setProducts(data.products);
-  };
+        if (!res.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await res.json();
+        setProducts(data.products);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  fetchProducts();
-}, [category, filters, sortOption]);
+    fetchProducts();
+  }, [category, filters, sortOption]);
 
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 
@@ -92,6 +102,7 @@ useEffect(() => {
             onReset={onFilterReset}
           />
         )}
+
         <div style={{ flex: 1 }}>
           <ProductListingContainer>
             <p>{getTagline(categoryName)}</p>
@@ -104,7 +115,7 @@ useEffect(() => {
               />
             )}
           </ProductListingContainer>
-          <ProductList products={products} />
+          <ProductList products={products}  isLoading={loading}/>
         </div>
       </PageContainer>
 
@@ -139,6 +150,7 @@ useEffect(() => {
           isMobileSheet={isMobile}
         />
       </MobileSheet>
+
       <Footer />
     </>
   );

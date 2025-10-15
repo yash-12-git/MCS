@@ -3,6 +3,7 @@ import { IProductListing } from "@/types/interface";
 export const allProducts: IProductListing[] = [
   {
     id: 1,
+    slug: "classic-navy-blue-suit",
     name: "Classic Navy Blue Suit",
     description: "Tailored-fit formal suit made from premium poly-viscose fabric. Perfect for weddings and business events.",
     price: 4999,
@@ -26,6 +27,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 2,
+    slug: "slim-fit-white-shirt",
     name: "Slim Fit White Shirt",
     description: "Elegant slim-fit shirt made with breathable cotton for daily office wear.",
     price: 1499,
@@ -49,6 +51,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 3,
+    slug: "grey-formal-trousers",
     name: "Grey Formal Trousers",
     description: "Comfortable and stylish grey trousers for office and semi-formal events.",
     price: 2499,
@@ -72,6 +75,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 4,
+    slug: "casual-beige-linen-shirt",
     name: "Casual Beige Linen Shirt",
     description: "Lightweight linen shirt perfect for summer outings.",
     price: 1799,
@@ -95,6 +99,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 5,
+    slug: "black-evening-blazer",
     name: "Black Evening Blazer",
     description: "Perfect for evening events, made from premium wool blend.",
     price: 6999,
@@ -118,6 +123,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 6,
+    slug: "casual-checkered-shirt",
     name: "Casual Checkered Shirt",
     description: "Trendy checkered shirt for casual outings and office casuals.",
     price: 1299,
@@ -141,6 +147,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 7,
+    slug: "ethnic-kurta-maroon",
     name: "Ethnic Kurta - Maroon",
     description: "Traditional maroon kurta with intricate embroidery.",
     price: 2399,
@@ -164,6 +171,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 8,
+    slug: "summer-polo-tee",
     name: "Summer Polo Tee",
     description: "Lightweight cotton polo t-shirt for casual wear.",
     price: 999,
@@ -187,6 +195,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 9,
+    slug: "mens-wool-sweater",
     name: "Men's Wool Sweater",
     description: "Warm wool sweater for winter, available in multiple colors.",
     price: 2999,
@@ -210,6 +219,7 @@ export const allProducts: IProductListing[] = [
   },
   {
     id: 10,
+    slug: "mens-black-leather-jacket",
     name: "Men's Black Leather Jacket",
     description: "Premium leather jacket, perfect for winter and casual wear.",
     price: 8999,
@@ -228,6 +238,7 @@ export const allProducts: IProductListing[] = [
     sizes: ["M", "L", "XL", "XXL"],
     skuQuantity: 4,
     createdAt: "2025-07-01T11:00:00Z",
-    updatedAt:"2025-07-01T11:00:00Z",
-    materialCare: "Yash..."
-  }];
+    updatedAt: "2025-07-01T11:00:00Z",
+    materialCare: "Use leather cleaner. Avoid water contact.",
+  },
+];

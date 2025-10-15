@@ -11,6 +11,7 @@ export interface FilterValues {
 
 export interface IProductListing {
   id: number;
+  slug: string;
   name: string;
   category: string;
   description: string;
