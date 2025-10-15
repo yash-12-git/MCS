@@ -1,43 +1,45 @@
 import styled from "@emotion/styled";
 import { colors } from "@/constants/colors";
 
-/* 🖥️ Desktop layout */
 export const DesktopSlider = styled.div`
   display: flex;
-  gap: 1rem;
+  flex:1;
   align-items: flex-start;
   width: 100%;
-  max-width: 800px;
+  max-width: 45rem;
 `;
 
 export const Thumbnails = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-height: 500px;
-  overflow-y: auto;
-
+  max-height: 35rem;
+  gap: 0.2rem 0rem;
+  overflow-x: scroll;
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 0.4rem;
   }
   &::-webkit-scrollbar-thumb {
     background-color: ${colors.grey400};
-    border-radius: 4px;
+    border-radius: 0.25rem;
   }
 `;
 
 export const Thumbnail = styled.div<{ isActive: boolean }>`
-  border: 2px solid ${({ isActive }) => (isActive ? colors.colorRichBlue : "transparent")};
-  border-radius: 6px;
+  border: 2px solid
+    ${({ isActive }) => (isActive ? colors.colorRichBlue : "transparent")};
+  border-radius: 0.25rem;
   cursor: pointer;
+  margin: 0rem 0rem 0rem 1rem;
   overflow: hidden;
+  width: 4rem;
+  height: 4rem;
   transition: border 0.3s ease;
 
   img {
-    width: 70px;
-    height: 70px;
+    width: 4rem;
+    height: 4rem;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     display: block;
   }
 
@@ -51,13 +53,14 @@ export const MainImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-color: ${colors.accent100};
+  margin: 0rem 1rem;
+  height: 30rem;
+  width: 100%;
   img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
+    height: 30rem;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -77,11 +80,12 @@ export const SliderTrack = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 20rem;
 
     img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
+      height: 20rem;
       object-fit: cover;
     }
   }
@@ -91,15 +95,17 @@ export const Dots = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 0.75rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 42%;
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: 8px;
-  height: 8px;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
   background-color: ${({ active }) =>
-    active ? colors.colorRichBlue : colors.grey400};
+    active ? colors.golden500 : colors.beige100};
   cursor: pointer;
   transition: background-color 0.3s ease;
 `;
