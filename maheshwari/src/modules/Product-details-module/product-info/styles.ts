@@ -83,28 +83,28 @@ export const SizeButton = styled.button<{ selected?: boolean }>`
 `;
 
 export const AddToCartButton = styled.button`
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: ${colors.colorRichBlue};
-  color: white;
-  border: none;
+  padding: 0.6rem 1rem;
+  background-color: ${colors.white100};
+  color: ${colors.colorRichBlue};
+  border: 2px solid ${colors.colorRichBlue};
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
+  margin-left: 2rem;
   transition: all 0.3s ease;
   @media (min-width: 768px) {
   max-width: 10rem;
-  padding: 0.8rem 0.5rem;
+  padding: 0.6rem 2rem;
   }
   &:hover {
-    background-color: ${colors.black400};
+    background-color: ${colors.colorRichBlue};
+    color: ${colors.beige100}
   }
 `;
 
 export const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
   gap: 0.75rem;
 `;
 
@@ -175,4 +175,41 @@ export const AccordionContent = styled.div`
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
   }
+`;
+
+export const AddToCartContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+`;
+
+export const QuantityContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const QuantityButton = styled.button`
+  width: 35px;
+  height: 35px;
+  border: 1px solid ${colors.grey300};
+  background-color: ${colors.white100};
+  color: ${colors.black100};
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: ${colors.grey100};
+  }
+`;
+
+export const QuantityValue = styled.span`
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
 `;

@@ -11,12 +11,19 @@ import {
   DiscountText,
   AccordionHeader,
   AccordionContent,
-} from "./product-info-styles";
+  QuantityContainer,
+  QuantityButton,
+  QuantityValue,
+  AddToCartContainer,
+} from "./styles";
+import { Share } from "lucide-react";
 
 const ProductInfoSection = ({
   productData,
+  loadingProductDetails
 }: {
   productData?: IProductListing;
+  loadingProductDetails: boolean;
 }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(
     productData?.color?.[0] || null
@@ -25,6 +32,7 @@ const ProductInfoSection = ({
     productData?.sizes?.[0] || null
   );
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState<number>(1);
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
@@ -37,12 +45,23 @@ const ProductInfoSection = ({
       alert("Please select both color and size.");
       return;
     }
-    console.log("Added to cart:", {
-      ...productData,
-      selectedColor,
-      selectedSize,
-    });
   };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: productData.name,
+        text: `Check out this product: ${productData.name}`,
+        url: window.location.href,
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Product link copied to clipboard!");
+    }
+  };
+
+  const increaseQuantity = () => setQuantity((prev) => Math.min(prev + 1, 10));
+  const decreaseQuantity = () => setQuantity((prev) => Math.max(prev - 1, 1));
 
   const {
     material = "",
@@ -57,26 +76,42 @@ const ProductInfoSection = ({
       <h1>{productData.name}</h1>
 
       {/* 💰 Price Section */}
-      <PriceContainer>
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <PriceText>
-            ₹{productData.discountedPrice || productData.price}
-          </PriceText>
-          {productData.discountedPrice && (
-            <>
-              <MRPText>₹{productData.price}</MRPText>
-              {productData.discountPercent && (
-                <DiscountText>{productData.discountPercent}% OFF</DiscountText>
-              )}
-            </>
-          )}
-        </div>
+      <section>
+        <h3>Pricing</h3>
+        <PriceContainer>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            <MRPText>₹{productData.price}</MRPText>
 
-        {/* Add to Cart Button below price */}
-        <AddToCartButton onClick={handleAddToCart}>
-          Add to Cart
-        </AddToCartButton>
-      </PriceContainer>
+            {productData.discountedPrice && (
+              <>
+                <PriceText>
+                  ₹{productData.discountedPrice || productData.price}
+                </PriceText>
+                {productData.discountPercent && (
+                  <DiscountText>
+                    {productData.discountPercent}% OFF
+                  </DiscountText>
+                )}
+              </>
+            )}
+          </div>
+        </PriceContainer>
+      </section>
+
+      {/* Quantity Selector */}
+      <section>
+        <h3>Quantity</h3>
+        <AddToCartContainer>
+          <QuantityContainer>
+            <QuantityButton onClick={decreaseQuantity}>−</QuantityButton>
+            <QuantityValue>{quantity}</QuantityValue>
+            <QuantityButton onClick={increaseQuantity}>+</QuantityButton>
+          </QuantityContainer>
+          <AddToCartButton onClick={handleAddToCart}>
+            Add to Cart
+          </AddToCartButton>
+        </AddToCartContainer>
+      </section>
 
       {/* Available Colors */}
       <section>
@@ -156,10 +191,10 @@ const ProductInfoSection = ({
       {openSection === "shipping" && (
         <AccordionContent>
           <ul>
-            <li>Free shipping on orders above ₹999.</li>
+            <li>Free shipping on orders above ₹1499.</li>
             <li>7-day easy return or exchange policy.</li>
             <li>
-              Report defective, or damaged items within 24 hours of delivery.
+              Report defective or damaged items within 24 hours of delivery.
             </li>
             <li>
               For frequent returns, a shipment fee of up to ₹100 may apply and
@@ -168,6 +203,7 @@ const ProductInfoSection = ({
           </ul>
         </AccordionContent>
       )}
+      <Share onClick={handleShare} size={25} />
     </InfoContainer>
   );
 };

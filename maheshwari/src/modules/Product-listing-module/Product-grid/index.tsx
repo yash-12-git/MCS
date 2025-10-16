@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { Skeleton } from "@mui/material";
 
 interface Props {
-  products: IProductListing[];
+  products: IProductListing[] | undefined;
   isLoading: boolean;
 }
 
@@ -36,7 +36,7 @@ export default function ProductList({ products, isLoading = false }: Props) {
     );
   }
 
-  if (!products.length) {
+  if (!products?.length) {
     return (
       <NoProductSection isLoading={isLoading}>
         <h3>No Product Available!!</h3>

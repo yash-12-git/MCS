@@ -1,14 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { DesktopSlider, Dot, Dots, MainImage, MobileSlider, SliderTrack, Thumbnail, Thumbnails } from "./styles";
+import {
+  DesktopSlider,
+  Dot,
+  Dots,
+  MainImage,
+  MobileSlider,
+  SliderTrack,
+  Thumbnail,
+  Thumbnails,
+} from "./styles";
 import Image from "next/image";
 
 interface ProductImageSliderProps {
   images?: string[];
+  loadingProductDetails: boolean;
 }
 
-const ProductImageSlider = ({images}:ProductImageSliderProps) => {
+const ProductImageSlider = ({
+  images,
+  loadingProductDetails,
+}: ProductImageSliderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -22,10 +35,17 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
   if (isMobile) {
     return (
       <MobileSlider>
-        <SliderTrack style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+        <SliderTrack
+          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        >
           {images?.map((img, index) => (
             <div className="slide" key={index}>
-              <Image src={img} alt={`Slide ${index + 1}`} width={100} height={100}/>
+              <Image
+                src={img}
+                alt={`Slide ${index + 1}`}
+                width={100}
+                height={100}
+              />
             </div>
           ))}
         </SliderTrack>
@@ -52,13 +72,24 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
             onClick={() => setActiveIndex(index)}
             isActive={index === activeIndex}
           >
-            <Image src={img} alt={`Thumbnail ${index + 1}`} width={15} height={15} />
+            <Image
+              src={img}
+              alt={`Thumbnail ${index + 1}`}
+              width={15}
+              height={15}
+            />
           </Thumbnail>
         ))}
       </Thumbnails>
 
       <MainImage>
-        <Image src={images?.[activeIndex] || ""} priority alt={`Product Image ${activeIndex + 1}`} width={600} height={600} />
+        <Image
+          src={images?.[activeIndex] || ""}
+          priority
+          alt={`Product Image ${activeIndex + 1}`}
+          width={600}
+          height={600}
+        />
       </MainImage>
     </DesktopSlider>
   );
