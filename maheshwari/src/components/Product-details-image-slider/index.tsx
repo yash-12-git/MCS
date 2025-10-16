@@ -5,7 +5,7 @@ import { DesktopSlider, Dot, Dots, MainImage, MobileSlider, SliderTrack, Thumbna
 import Image from "next/image";
 
 interface ProductImageSliderProps {
-  images: string[];
+  images?: string[];
 }
 
 const ProductImageSlider = ({images}:ProductImageSliderProps) => {
@@ -23,7 +23,7 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
     return (
       <MobileSlider>
         <SliderTrack style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-          {images.map((img, index) => (
+          {images?.map((img, index) => (
             <div className="slide" key={index}>
               <Image src={img} alt={`Slide ${index + 1}`} width={100} height={100}/>
             </div>
@@ -31,7 +31,7 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
         </SliderTrack>
 
         <Dots>
-          {images.map((_, index) => (
+          {images?.map((_, index) => (
             <Dot
               key={index}
               active={index === activeIndex}
@@ -46,7 +46,7 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
   return (
     <DesktopSlider>
       <Thumbnails>
-        {images.map((img, index) => (
+        {images?.map((img, index) => (
           <Thumbnail
             key={index}
             onClick={() => setActiveIndex(index)}
@@ -58,7 +58,7 @@ const ProductImageSlider = ({images}:ProductImageSliderProps) => {
       </Thumbnails>
 
       <MainImage>
-        <Image src={images[activeIndex]} alt={`Product Image ${activeIndex + 1}`} width={600} height={600} />
+        <Image src={images?.[activeIndex] || ""} priority alt={`Product Image ${activeIndex + 1}`} width={600} height={600} />
       </MainImage>
     </DesktopSlider>
   );

@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     const matchColor = color
       ? p.color.some((c) => c.toLowerCase() === color.toLowerCase())
       : true;
-    const matchFabric = fabric ? p.fabricType.toLowerCase() === fabric.toLowerCase() : true;
+    const matchFabric = fabric ? p.productDetails?.material.toLowerCase() === fabric.toLowerCase() : true;
     const matchAvailability =
       availability === availablityType.inStock
         ? p.inStock

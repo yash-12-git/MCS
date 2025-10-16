@@ -1,17 +1,20 @@
-'use client'
+"use client";
 
 import ProductImageSlider from "@/components/Product-details-image-slider";
 import { Container } from "./styles";
-import { colors } from "@/constants/colors";
+import useProductDetailsHook from "@/hooks/use-product-details-hook";
+import ProductInfoSection from "./product-info";
 
 const ProductDetailsDescriptionComponet = () => {
-     const images = ['/wool.png', '/silk.png', '/linen.png', '/coat.jpeg'];
-    return (
-            <Container>
-             <ProductImageSlider images={images}/>
-             <div style={{ flex:1}}>Hello</div>
-            </Container>
-    )
-}
+  const { productDetail, loading } = useProductDetailsHook();
+  console.log(productDetail, "line38");
+  if (loading) return <></>;
+  return (
+    <Container>
+      <ProductImageSlider images={productDetail?.gallery} />
+      <ProductInfoSection productData={productDetail} />
+    </Container>
+  );
+};
 
 export default ProductDetailsDescriptionComponet;

@@ -3,10 +3,8 @@ import { colors } from "@/constants/colors";
 
 export const DesktopSlider = styled.div`
   display: flex;
-  flex:1;
+  flex:1.8;
   align-items: flex-start;
-  width: 100%;
-  max-width: 45rem;
 `;
 
 export const Thumbnails = styled.div`
@@ -31,13 +29,13 @@ export const Thumbnail = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   margin: 0rem 0rem 0rem 1rem;
   overflow: hidden;
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height:7rem;
   transition: border 0.3s ease;
 
   img {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 7rem;
     object-fit: cover;
     border-radius: 0.25rem;
     display: block;
@@ -55,11 +53,11 @@ export const MainImage = styled.div`
   align-items: center;
   background-color: ${colors.accent100};
   margin: 0rem 1rem;
-  height: 30rem;
+  height: 40rem;
   width: 100%;
   img {
     width: 100%;
-    height: 30rem;
+    height: 40rem;
     object-fit: cover;
   }
 `;
@@ -81,7 +79,7 @@ export const SliderTrack = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 20rem;
+    height: 18rem;
 
     img {
       width: 100%;

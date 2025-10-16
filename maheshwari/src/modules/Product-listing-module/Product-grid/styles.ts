@@ -8,7 +8,7 @@ export const ProductGrid = styled.div`
   gap: 1.5rem;
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-      gap: 1.5rem 0.5rem;
+    gap: 1.5rem 0.5rem;
   }
 `;
 
@@ -72,20 +72,20 @@ export const ProductCard = styled.div<{ outOfStock?: boolean }>`
     }
 
     .out-of-stock {
-    position: absolute;
-    bottom: 8rem;
-    left: 0.4rem;
-    background: ${colors.error300};
-    color: white;
-    padding: 2px 6px;
-    font-size: 0.75rem;
-    border-radius: 0.25rem;
-  }
+      position: absolute;
+      bottom: 8rem;
+      left: 0.4rem;
+      background: ${colors.error300};
+      color: white;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      border-radius: 0.25rem;
+    }
   }
 `;
 
 export const DescriptionContainer = styled.div`
-padding: 0rem 0.5rem;
+  padding: 0rem 0.5rem;
 `;
 
 export const PriceContainer = styled.div`
@@ -143,13 +143,34 @@ export const NoProductSection = styled.div<{ isLoading?: boolean }>`
     font-size: 1rem;
   }
 
-  
   @media (max-width: 768px) {
-  margin: 1.2rem;
-   h3 {
-    font-size: 1.5rem;
+    margin: 1.2rem;
+    h3 {
+      font-size: 1.5rem;
+      padding: 0rem;
+      margin: 0rem;
+    }
+  }
+`;
+
+export const LoadingPlaceholder = styled.div`
+  gap: 1rem 0.6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  .shimmer {
     padding: 0rem;
     margin: 0rem;
+    width: 12rem;
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1.5rem 0.5rem;
+
+    .shimmer {
+      padding: 0rem;
+      margin: 0rem;
+      width: 100%;
+    }
   }
 `;
