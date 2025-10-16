@@ -10,6 +10,7 @@ const SimilarProducts = ({
   products: IProductListing[] | undefined;
   loading: boolean;
 }) => {
+  if (!products?.length) return <></>;
   return (
     <Container>
       <h2>You may also like</h2>

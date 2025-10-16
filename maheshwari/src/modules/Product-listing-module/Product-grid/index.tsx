@@ -54,7 +54,7 @@ export default function ProductList({ products, isLoading = false }: Props) {
           onClick={() => router.push(`/product-details/${product.slug}`)}
         >
           <Image
-            src={product.image}
+            src={product.image || ""}
             width={300}
             height={100}
             alt={product.name}
