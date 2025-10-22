@@ -6,10 +6,10 @@ import { TabItem, TabsContainer } from "./styles";
 const tabs = [
   { label: "Home", path: "/" },
   { label: "Best Sellers", path: "/product-listing/best-sellers" },
-  { label: "Suits", path: "/product-listing/suits" },
+  { label: "Suits & Blazers", path: "/product-listing/suits-blazers" },
   { label: "Jackets", path: "/product-listing/jackets" },
   { label: "Trousers", path: "/product-listing/trousers" },
-   { label: "Blazers", path: "/product-listing/blazers" },
+   { label: "Bandhgala & Jhodpuri", path: "/product-listing/jhodpuri" },
   { label: "Shirts", path: "/product-listing/shirts" },
   { label: "Kurtas", path: "/product-listing/kurtas" },
 ];

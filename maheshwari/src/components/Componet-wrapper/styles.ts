@@ -22,6 +22,7 @@ export const Title = styled.p`
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
   padding: 0rem;
   margin: 0rem;
   @media (max-width: 768px) {
@@ -41,10 +42,10 @@ export const Subtitle = styled.p`
 
 export const CardsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  justify-items: center;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.8rem 2rem;
+   justify-items: center;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0rem;
   @media (max-width: 768px) {
@@ -86,8 +87,8 @@ export const ScrollButton = styled.button`
   bottom: 1.25rem;
   right: 0.5rem;
   border-radius: 50%;
-  width: 34px;
-  height: 34px;
+  width: 2.2rem;
+  height: 2.2rem;
   display: flex;
   justify-content: center;
   align-items: center;

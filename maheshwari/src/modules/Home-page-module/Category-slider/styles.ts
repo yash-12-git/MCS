@@ -1,38 +1,48 @@
 import { colors } from "@/constants/colors";
 import styled from "@emotion/styled";
 
-export const FabricCard = styled.div`
+export const CategoryCard = styled.div`
   position: relative;
   flex: 0 0 auto;
-  width: 23rem;
-  height: 15rem;
+  height: 25rem;
+  width: 25rem;
   overflow: hidden;
   cursor: pointer;
-  border-radius:0.65rem;
+  background-color: ${colors.colorRichBlue};
+  box-shadow: 0 4px 12px ${colors.grey400};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 15px ${colors.grey500};
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px ${colors.black100};
   }
   @media (max-width: 768px) {
-    width: 9.7rem;
-    height: 12rem;
+    width: 11rem;
+      height: 14.5rem;
   }
 `;
 
-export const FabricName = styled.span`
-  position: absolute;
-  bottom: 0rem;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: ${colors.beige200};
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-shadow: 0px 10px 15px ${colors.grey500};
-  color: ${colors.beige500};
-  background-color: ${colors.colorRichBlue};
+export const CardImage = styled.img`
+  width: 100%;
+  height: 21.875rem;
+  object-fit: cover;
+  display: block;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    height: 12.5rem;
+  }
+`;
+
+export const CardTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: ${colors.beige100};
+  padding: 0.7rem 0.5rem;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    padding: 0.5rem 0rem;
+    margin: 0rem;
   }
 `;

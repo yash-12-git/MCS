@@ -1,7 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { BannerButton, BannerContainer, BannerContent, ImageWrapper } from './styles';
+import {
+  BannerButton,
+  BannerContainer,
+  BannerContent,
+  ImageWrapper,
+} from './styles';
 
 interface BannerProps {
   imageSrc?: string;
@@ -13,7 +18,7 @@ interface BannerProps {
 const HomePageBanner = ({
   imageSrc = "/banner-img.png",
   title = "Experience the Art of Fine Living with our Exquisite Fabrics and Designs.",
-  subtitle="Discover vibrant colors, and timeless elegance.",
+  subtitle = "Discover vibrant colors, and timeless elegance.",
   buttonText = "Explore Collections",
 }: BannerProps) => {
   return (
@@ -23,8 +28,13 @@ const HomePageBanner = ({
           src={imageSrc}
           alt={title}
           fill
-          style={{ objectFit: 'cover' }}
           priority
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            imageRendering: "auto",
+          }}
         />
       </ImageWrapper>
 
